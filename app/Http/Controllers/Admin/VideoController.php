@@ -52,7 +52,7 @@ class VideoController extends BaseController
 		try {
 			DB::beginTransaction();
 			request()->validate([
-				'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm,avi|max:102400',
+				'video' => 'required|max:102400',
 			]);
 			$insertFields['title'] = '';
 			$insertFields['slug'] = '';
@@ -99,7 +99,7 @@ class VideoController extends BaseController
 		try {
 			DB::beginTransaction();
 			request()->validate([
-				'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm,avi|max:102400',
+				'video' => 'required|max:102400',
 			]);
 			$old_video = [];
 			$iVideo = Video::find($id);
