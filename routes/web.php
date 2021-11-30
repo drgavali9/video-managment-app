@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -31,4 +32,4 @@ use Illuminate\Support\Facades\Route;
 
 // Admin
 require __DIR__ . '/admin.php';
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [LoginController::class, 'index']);
