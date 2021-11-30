@@ -29,6 +29,17 @@ class VideoController extends BaseController
 		return view('admin.videos.index');
 	}
 
+	public function get_all(Request $request)
+    {
+        try {
+            $length = $request->length > 0 ? $request->length : 10;
+            $iRes = Video::select('*');
+            return $iRes->where('status',1)->paginate($length);
+        } catch (Throwable $th) {
+            throw $th;
+        }
+    }
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -41,16 +52,15 @@ class VideoController extends BaseController
 		try {
 			DB::beginTransaction();
 			request()->validate([
-				'video' => 'required|video|mimes:mp4,ogx,oga,ogv,ogg,webm|max:102400',
+				'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm,avi|max:102400',
 			]);
-
 			$insertFields['title'] = '';
 			$insertFields['slug'] = '';
 			$video = Video::create($insertFields);
 			$video_id = $video->id;
 			$this->uploadVideo($request, $video_id);
 			DB::commit();
-            return response()->json(['success' => TRUE, 'message' => 'Video Uploded Successfully']);
+			return response()->json(['success' => TRUE, 'message' => 'Video Uploded Successfully']);
 		} catch (Throwable $th) {
 			DB::rollBack();
 			throw $th;
@@ -89,19 +99,19 @@ class VideoController extends BaseController
 		try {
 			DB::beginTransaction();
 			request()->validate([
-				'video' => 'required|video|mimes:mp4,ogx,oga,ogv,ogg,webm|max:4048',
+				'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm,avi|max:102400',
 			]);
 			$old_video = [];
-			$video = Video::find($id);
+			$iVideo = Video::find($id);
 			if ($request->hasFile('video')) {
 				$video = $request->file('video');
 				$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
-				$video->move(public_path(Config::get('videopath.path.video')), $name);
-				$old_video[] = $video->video;
-				$video->video = $name;
+				$video->move(public_path(Config::get('imagepath.path.video')), $name);
+				$old_video[] = $iVideo->video;
+				$iVideo->video = $name;
 			}
 
-			$video->save();
+			$iVideo->save();
 
 			if (!empty($old_video)) {
 				foreach ($old_video as $key => $value) {
