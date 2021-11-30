@@ -9,6 +9,6 @@ return [
 		],
 	],
 	'path' => [
-        'video' => 'public/storage/videos/',
+        'video' => 'storage/videos/',
 	],
 ];

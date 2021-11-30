@@ -33,6 +33,6 @@ class Video extends Model
 		} else {
 			$value = url(Config::get('imagepath.default.video'));
 		}
-		return $value;
+		return 'public/'.$value;
 	}
 }
