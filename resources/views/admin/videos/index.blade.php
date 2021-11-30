@@ -86,7 +86,7 @@
                     render(data, type, full, meta) {
 
                         let iReturn =
-                            '<div class="custom-control custom-switch custom-switch-success custom-control-inline"> <input autocomplete="off"  type="checkbox" class="custom-control-input web_status"  data-banner_id="' +
+                            '<div class="custom-control custom-switch custom-switch-success custom-control-inline"> <input autocomplete="off"  type="checkbox" class="custom-control-input status"  data-video_id="' +
                             full.id +
                             '" id="customSwitch1' +
                             full.id +
@@ -121,26 +121,11 @@
         });
 
         function setToggleEvent() {
-            $(".web_status").click(function() {
-                let id = $(this).data('banner_id');
+            $(".status").click(function() {
+                let id = $(this).data('video_id');
                 let val = $(this).filter(':checked').val() == "on" ? 1 : 0;
                 confomationDailog($(this), "{{ route('admin.videos.statusUpdate', '') }}", '/' + id,
-                    'web_status', val);
-            });
-            $(".app_status").click(function() {
-                let id = $(this).data('banner_id');
-                let val = $(this).filter(':checked').val() == "on" ? 1 : 0;
-                confomationDailog($(this), "{{ route('admin.videos.statusUpdate', '') }}", '/' + id,
-                    'app_status', val);
-            });
-            $(".deleteTab").click(function() {
-                let id = $(this).attr("banner_id");
-                confomationDailog($(this), "{{ route('admin.videos.delete', '') }}", '/' + id, '', "", "delete",
-                    true);
-            });
-            $(".editTab").click(function() {
-                let id = $(this).attr("banner_id");
-                window.location.replace("{{ route('admin.videos.edit', '') }}" + '/' + id);
+                    'status', val);
             });
         }
     </script>

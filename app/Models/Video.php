@@ -22,17 +22,17 @@ class Video extends Model
 		'status',
 	];
 
-    public function getVideoAttribute($value)
+	public function getVideoAttribute($value)
 	{
 		if (isset($value) && !empty($value)) {
 			if (strpos($value, 'http') === false) {
-				$value = url(Config::get('imagepath.path.video') . $value);
+				$value = url('public/' . Config::get('imagepath.path.video') . $value);
 			} else if (strpos($value, 'http') != 0) {
-				$value = url(Config::get('imagepath.path.video') . $value);
+				$value = url('public/' . Config::get('imagepath.path.video') . $value);
 			}
 		} else {
-			$value = url(Config::get('imagepath.default.video'));
+			$value = url('public/' . Config::get('imagepath.default.video'));
 		}
-		return 'public/'.$value;
+		return $value;
 	}
 }
