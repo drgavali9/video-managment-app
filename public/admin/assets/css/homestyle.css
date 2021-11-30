@@ -1,0 +1,726 @@
+.sectiontitle{
+    width: 100%;
+    float: left;
+    height: 60px;
+    background-color: white;
+    color: #103E39;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.delivery{
+    margin-top: 28px;
+    width: 100%;
+    float: left;
+    height: 115px;
+    background-color: white;
+    padding: 15px;
+}
+.delivery p{
+    color: #103E39;
+    font-weight: bold;
+}
+
+/* input[type=text], select, textarea {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  } */
+
+  select#country {
+    margin-top: 5px;
+}
+
+.cashbtn{
+    margin-top: 25px;
+    width: 100%;
+    float: left;
+    /* height: 150px; */
+    background-color: white;
+    padding: 25px;
+}
+
+button.CashonDelivery{
+    background-color: white;
+    color:#168A7C;
+    border: 1px solid#168A7C;
+    padding-top: 10px;
+    font-weight: 700;
+    outline: none;
+}
+button.OnlinePayment{
+    background-color:#e7eded;
+    color:#168A7C;
+    border: 1px solid #e7eded;
+    padding-top: 11px;
+    font-weight: 700;
+    margin-left: 5px;
+
+}
+
+.selectcard{
+    margin-top: 41px;
+    width: 100%;
+    float: left;
+    /* height: 150px; */
+    background-color: white;
+    padding: 25px;
+}
+
+.Addright{
+    float: right;
+    color:#168A7C;
+    font-weight: 500;
+}
+
+.selectcard h6{
+    color: #133e39;
+    font-weight: bold;
+}
+
+.centerbox{
+    background-color:#e7eded;
+    padding: 25px;
+    margin-top: 10px;
+    height: 150px;
+}
+
+.centerbox:hover{
+    border: 1px solid #133e39;
+}
+
+.centerbox p {
+    color: #133e39;
+    font-weight: bold;
+}
+.centerbox h6 {
+    color: #133e39;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.centerbox h5{
+    font-size: 15px;
+    margin-top: 10px;
+    color: #133e39;
+}
+
+.selectaddress{
+    margin-top: 27px;
+    width: 100%;
+    float: left;
+    /* height: 150px; */
+    background-color: white;
+    padding: 25px;
+}
+
+.selectaddress h6{
+    color: #133e39;
+    font-weight: bold;
+}
+
+
+.centerbox1{
+    background-color:#e7eded;
+    padding: 25px;
+    margin-top: 16px;
+    height: 150px;
+}
+
+.centerbox1:hover{
+    border: 1px solid #133e39;
+}
+
+.centerbox1 p span{
+    background-color:#147867;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    color: white;
+}
+
+.iconright{
+    float: right;
+}
+
+.centerbox1 h5{
+    font-size: 15px;
+    margin-top: 10px;
+    color: #133e39;
+
+}
+
+.centerbox1 h6{
+    font-size: 12px;
+    color: #3f8b7c;
+    margin-top: 10px;
+}
+
+.centerbox1 h3{
+    font-size: 12px;
+    color: #3f8b7c;
+
+}
+
+.whitebox{
+    background-color: white;
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------*/
+    /* product details description area start */
+/*-----------------------------------------------*/
+
+
+
+.pro-details-social-info .social-info li a:hover{
+    color:#4fb68d;
+}
+.pro-details-social-info .social-info li a {
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    color: #103E39;
+    margin-right: 0px;
+    white-space: normal;
+    text-indent: 0;
+    overflow: hidden;
+    padding: 0;
+    font-size: 20px;
+    width: 30px;
+}
+
+.pro-details-social-info span{
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    line-height: 30px;
+    font-weight: 700;
+    font: normal normal bold 18px/27px Poppins;
+    letter-spacing: 0px;
+    color: #103E39;
+}
+
+
+.category{
+    font: normal normal bold 18px/27px Poppins;
+    letter-spacing: 0px;
+    color: #103E39;
+}.category span{
+    font: normal normal normal 18px/27px Poppins;
+    letter-spacing: 0px;
+    color: #103E39;
+}
+
+
+
+
+
+
+/*----------------------------------------*/
+    /*  23.Product Details Page Style  */
+/*----------------------------------------*/
+
+
+
+
+
+
+
+
+/*----------------------------------------*/
+    /*  14.Footer Area Style  */
+/*----------------------------------------*/
+.footer-area{
+    background-color: #E7EDED;
+}
+/*----------------------------------------*/
+    /*  Recipe Style  */
+/*----------------------------------------*/
+
+.blog-title a{
+    color: #103E39 !important;
+}
+
+.specification .specification-title a{
+    font: normal normal bold 22px/33px Poppins;
+    color: #103E39;
+    text-transform: uppercase;
+}
+.specification{
+    margin-top: 20px;
+    padding: 18px;
+}
+.specification .specification-title a::after {
+    width: 72px;
+}
+.specification .specification-title a.active {
+    color: #103E39;
+}
+.specification .specification-title a::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    background: transparent;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.specification  ul{
+    text-align: left;
+    font: normal normal normal 18px/40px Poppins;
+    color: #103E39;
+}
+.specification  ul span{
+    text-align: left;
+    font: normal normal bold 18px/40px Poppins;
+    letter-spacing: 0px;
+    color: #103E39;
+    opacity: 1;
+    min-width: 180px;
+}
+.specification p{
+    height: 120px;
+    color: #707070;
+}
+.recipe-title{
+    padding: 20px;
+}
+.recipe-title h5{
+    color: #103E39;
+}
+.recipe-title li {
+    margin: 10px 0;
+    list-style: none;
+}
+.recipe-title li a {
+    margin: 10px 0;
+    color: #253237;
+}
+/* .product-quantity{
+    position: initial;
+    background: initial;
+
+    display: inline-flex;
+} */
+.product-quantity .cart-plus-minus {
+    display: inline-block;
+    height: 40px;
+    padding: 0;
+    position: relative;
+    width: 110px;
+}
+.product-quantity .cart-plus-minus .dec.qtybutton {
+    border-right: 1px solid #e5e5e5;
+    height: 40px;
+    left: 0;
+    padding-top: 8px;
+    top: 0;
+    background: #168A7C;
+    color: #fff;
+}
+.product-quantity .cart-plus-minus .qtybutton {
+    color: #666;
+    cursor: pointer;
+    float: inherit;
+    font-size: 16px;
+    margin: 0;
+    position: absolute;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 20px;
+    text-align: center;
+}
+.product-quantity .cart-plus-minus input.cart-plus-minus-box {
+    color: #666;
+    float: left;
+    font-size: 14px;
+    height: 40px;
+    margin: 0;
+    width: 110px;
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #e1e1e1;
+    padding: 0;
+    text-align: center;
+}
+.product-quantity .cart-plus-minus .inc.qtybutton {
+    border-left: 1px solid #e5e5e5;
+    height: 40px;
+    padding-top: 9px;
+    right: 0;
+    top: 0;
+    background: #168A7C;
+    color: #fff;
+}
+.emtycart{
+	text-align: center;
+	padding-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.product_not_found{
+	text-align: center;
+}
+#my_recent_cat li{ display: none; }
+#my_cat li{ display:none;}
+#my_brand li{ display:none;}
+#loadder_display{
+	opacity: 1;
+	z-index:99999;
+	position: fixed;
+	top:35%;
+	left: 50%;
+}
+#loadder_display img{
+	height: 5%;
+	width: 35%;
+}
+.opecity0_5{
+	opacity: 0.5;
+}
+/* ---------------------------------------- */
+/* check out style  */
+/* --------------------------------------- */
+.predelievry{
+	background-color: #e7eded;
+	padding: -2px;
+	padding: 5px 10px;
+	margin-top: 5px;
+	color: #103E39;
+	font-weight: 500;
+	font-size: 12px;
+}
+
+.predelievry span{
+	color: #4fb68d;
+}
+.order-image{
+	height: 4rem;
+	width: 3.5rem;
+}
+.order-privacy-policy{
+	margin-bottom: 4%;
+}
+.order-term{
+	margin-bottom: 15%;
+}
+.fontstyle{
+	color: #103E39;
+    font-weight: bold;
+}
+.billing {
+	padding: 10px;
+}
+.delivery-pickup {
+	padding: 10px;
+}
+.yourorder{
+	border: 0px;
+    margin-bottom: 20px;
+    padding: 47px 30px 29px;
+}
+.yourorder h5{
+	color: #103E39;
+    margin: 0px;
+    margin-top: 30px;
+}
+.yourorder h4{
+	color: #103E39;
+    font-size: 18px;
+}
+
+/* ------------------------------------------- */
+/* Recipe details page */
+/* ------------------------------------------- */
+
+
+.order-detail{
+    width: 100%;
+    float: left;
+    height: 100px;
+}
+
+
+.prodct1{
+    height: 50px;
+    width: 100%;
+}
+
+.prodct1 img {
+    max-width: 150%;
+    /* line-height: 2px; */
+    margin-top: 13px;
+}
+
+.prodct1text{
+    height: 50px;
+    width: 100%;
+
+}
+.prodct1text p{
+    font-size: 10px;
+    color: #103E39;
+    font-weight: 600;
+}
+.prodct1right{
+    margin-top: 14px;
+    font-weight: bold;
+    color: #103E39;
+}
+
+.line1{
+    border: 1px solid #e7eded;
+    margin-top: 10px;
+}
+
+.box{
+    width: 100%;
+    height: 200px;
+}
+
+.rightaed{
+    float: right;
+    font-weight: bold;
+    color: #103E39;
+}
+
+.submenu{
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+}
+
+.submenu p{
+    color: teal;
+}
+.icontitle{
+    width: 100%;
+    float: left;
+    height: 60px;
+    padding-top: 10px;
+}
+
+.icon1{
+    width:20%;
+    float: left;
+}
+
+.icon2{
+    width: 80%;
+    float: left;
+}
+
+p.order-privacy-policy {
+    padding-top: 53px;
+    font-size: 12px;
+    color: gray;
+}
+p.order-term {
+    font-size: 12px;
+    color: gray;
+}
+
+.Deliveryshedule{
+    width: 100%;
+    float: left;
+    height: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 25px;
+}
+
+
+
+.Deliveryshedule h6 {
+    color: #133e39;
+    font-weight: bold;
+}
+
+.Deliveryshedule h5 {
+    color: #133e39;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 13px;
+}
+
+.Deliveryshedule p {
+    font-size: 13px;
+    margin-top: 10px;
+    color: gray;
+}
+
+.checkbox{
+    width: 100%;
+    float: left;
+    height: 360px;
+    margin-top: 10px;
+}
+
+.boxcheck{
+    width: 24.28%;
+    float: left;
+    height: 81px;
+    border: 1px solid #C8E4D8;
+    padding: 9px;
+}
+
+.boxcheck p{
+    color: #168A7C;
+    font-weight: bold;
+}
+
+sub.rightcheck{
+    float: right;
+    margin-top: 14px;
+}
+
+
+.boxcheck p span{
+    color: green;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.timeslot{
+    width: 100%;
+    float: left;
+    height: auto;
+}
+
+.timebtn{
+    margin-top: 10px;
+    border: 1px solid #C8E4D8;
+    padding: 20px;
+}
+
+.timebtn h3{
+    font-size: 14px;
+    color: green;
+    font-weight: 600;
+}
+
+.paeorder{
+    width: 100%;
+    float: left;
+    height: 590px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.paeorder h6{
+    color: #133e39;
+    font-weight: 700;
+    padding-top: 40px;
+}
+
+.paeorder h6 span{
+    float: right;
+    color: green;
+    font-weight: 600;
+}
+
+.list-group{
+    margin-top: 30px;
+}
+
+.list-group h5{
+    font-size: 17px;
+    color: green;
+    font-weight: 600;
+}
+.list-group h5 span{
+    font-size: 17px;
+    color: green;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.list-group p {
+    margin-left: 25px;
+    font-size: 13px;
+    font-weight: 400;
+    padding-top: 15px;
+}
+
+.subscribe{
+    width: 100%;
+    float: left;
+    height: 80px;
+    background-color:white;
+    margin-top: 15px;
+}
+
+.subscribe h6{
+    font-size: 16px;
+    color: #133e39;
+    font-weight: 700;
+    padding: 33px;
+}
+
+.Additional{
+    width: 100%;
+    float: left;
+    height: 223px;
+    background-color:white;
+    margin-top: 15px;
+    padding: 33px;
+}
+
+.Additional h6{
+    font-size: 16px;
+    color: #133e39;
+    font-weight: 700;
+
+}
+
+.Additional p{
+    color: #133e39;
+    margin-top: 10px;
+}
+
+
+.Additional input[type=text]{
+    width: 100%;
+    height: 70px;
+    /* padding: 12px; */
+    border: 1px solid #C8E4D8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* margin-top: 6px; */
+    /* margin-bottom: 16px; */
+    /* resize: vertical; */
+    outline: none;
+  }
+
+  .footer-area {
+    padding: 0;
+    color: #666;
+    position: relative;
+    z-index: 1;
+    background:#E7EDED;
+    overflow: hidden;
+    margin-top: 59px;
+}
