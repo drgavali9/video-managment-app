@@ -104,40 +104,40 @@ class VideoController extends BaseController
 	// 	}
 	// }
 
-	public function uploadVideo(Request $request, $id)
-	{
-		try {
-			DB::beginTransaction();
-			request()->validate([
-				'video' => 'required|max:102400',
-			]);
-			$old_video = [];
-			$iVideo = Video::find($id);
-			if ($request->hasFile('video')) {
-				$video = $request->file('video');
-				$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
-				$video->move(public_path(Config::get('imagepath.path.video')), $name);
-				$old_video[] = $iVideo->video;
-				$iVideo->video = $name;
-			}
+	// public function uploadVideo(Request $request, $id)
+	// {
+	// 	try {
+	// 		DB::beginTransaction();
+	// 		request()->validate([
+	// 			'video' => 'required|max:102400',
+	// 		]);
+	// 		$old_video = [];
+	// 		$iVideo = Video::find($id);
+	// 		if ($request->hasFile('video')) {
+	// 			$video = $request->file('video');
+	// 			$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
+	// 			$video->move(public_path(Config::get('imagepath.path.video')), $name);
+	// 			$old_video[] = $iVideo->video;
+	// 			$iVideo->video = $name;
+	// 		}
 
-			$iVideo->save();
+	// 		$iVideo->save();
 
-			if (!empty($old_video)) {
-				foreach ($old_video as $key => $value) {
-					$video = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $value);
-					if (File::exists($video) && preg_match('/^storage/', $video)) {
-						File::delete($video);
-					}
-				}
-			}
-			DB::commit();
-			return ['success' => true, "message" => "Video uploaded successfully."];
-		} catch (Throwable $th) {
-			DB::rollback();
-			throw $th;
-		}
-	}
+	// 		if (!empty($old_video)) {
+	// 			foreach ($old_video as $key => $value) {
+	// 				$video = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $value);
+	// 				if (File::exists($video) && preg_match('/^storage/', $video)) {
+	// 					File::delete($video);
+	// 				}
+	// 			}
+	// 		}
+	// 		DB::commit();
+	// 		return ['success' => true, "message" => "Video uploaded successfully."];
+	// 	} catch (Throwable $th) {
+	// 		DB::rollback();
+	// 		throw $th;
+	// 	}
+	// }
 
 	/**
 	 * Remove the specified resource from storage.
