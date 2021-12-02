@@ -30,15 +30,15 @@ class VideoController extends BaseController
 	}
 
 	public function get_all(Request $request)
-    {
-        try {
-            $length = $request->length > 0 ? $request->length : 10;
-            $iRes = Video::select('*');
-            return $iRes->where('status',1)->paginate($length);
-        } catch (Throwable $th) {
-            throw $th;
-        }
-    }
+	{
+		try {
+			$length = $request->length > 0 ? $request->length : 10;
+			$iRes = Video::select('*');
+			return $iRes->where('status', 1)->paginate($length);
+		} catch (Throwable $th) {
+			throw $th;
+		}
+	}
 
 
 	/**
@@ -54,10 +54,10 @@ class VideoController extends BaseController
 			request()->validate([
 				'video' => 'required|max:102400',
 			]);
-			$iVideo = new Video();
-			$iVideo->title = '';
-			$iVideo->slug = '';
 			if ($request->hasFile('video')) {
+				$iVideo = new Video();
+				$iVideo->title = '';
+				$iVideo->slug = '';
 				$video = $request->file('video');
 				$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
 				$video->move(public_path(Config::get('imagepath.path.video')), $name);
@@ -65,8 +65,10 @@ class VideoController extends BaseController
 				$iVideo->video = $name;
 				$iVideo->save();
 				// $video_id = $iVideo->id;
+				// $this->uploadVideo($request, $video_id);
+			}else{
+				throw new Exception('Video not found');
 			}
-			// $this->uploadVideo($request, $video_id);
 			DB::commit();
 			return response()->json(['success' => TRUE, 'message' => 'Video Uploded Successfully']);
 		} catch (Throwable $th) {
