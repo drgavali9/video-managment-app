@@ -54,11 +54,19 @@ class VideoController extends BaseController
 			request()->validate([
 				'video' => 'required|max:102400',
 			]);
-			$insertFields['title'] = '';
-			$insertFields['slug'] = '';
-			$video = Video::create($insertFields);
-			$video_id = $video->id;
-			$this->uploadVideo($request, $video_id);
+			$iVideo = new Video();
+			$iVideo->title = '';
+			$iVideo->slug = '';
+			if ($request->hasFile('video')) {
+				$video = $request->file('video');
+				$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
+				$video->move(public_path(Config::get('imagepath.path.video')), $name);
+				$old_video[] = $iVideo->video;
+				$iVideo->video = $name;
+				$iVideo->save();
+				// $video_id = $iVideo->id;
+			}
+			// $this->uploadVideo($request, $video_id);
 			DB::commit();
 			return response()->json(['success' => TRUE, 'message' => 'Video Uploded Successfully']);
 		} catch (Throwable $th) {
