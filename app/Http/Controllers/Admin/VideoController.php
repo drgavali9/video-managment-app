@@ -34,7 +34,9 @@ class VideoController extends BaseController
 		try {
 			$length = $request->length > 0 ? $request->length : 10;
 			$iRes = Video::select('*');
-			return $iRes->where('status', 1)->paginate($length);
+			return $iRes->where('status', 1)
+			// ->paginate($length)
+			->random();
 		} catch (Throwable $th) {
 			throw $th;
 		}
@@ -53,16 +55,21 @@ class VideoController extends BaseController
 			DB::beginTransaction();
 			request()->validate([
 				'video' => 'required|max:102400',
+				'thumbnail' => 'required|max:102400',
 			]);
 			if ($request->hasFile('video')) {
 				$iVideo = new Video();
-				$iVideo->title = '';
-				$iVideo->slug = '';
+
 				$video = $request->file('video');
 				$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
 				$video->move(public_path(Config::get('imagepath.path.video')), $name);
-				$old_video[] = $iVideo->video;
 				$iVideo->video = $name;
+
+				$thumbnail = $request->file('thumbnail');
+				$thumbnail_name = md5(RandomStringGenerator(16) . time()) . '.' . $thumbnail->extension();
+				$thumbnail->move(public_path(Config::get('imagepath.path.thumbnail')), $thumbnail_name);
+				$iVideo->thumbnail = $thumbnail_name;
+
 				$iVideo->save();
 				// $video_id = $iVideo->id;
 				// $this->uploadVideo($request, $video_id);
@@ -150,24 +157,24 @@ class VideoController extends BaseController
 		if ($request->ajax()) {
 			try {
 				DB::beginTransaction();
-				$video = Video::find($id);
+				$iVideo = Video::find($id);
 				$iData = Video::destroy($id);
 				if ($iData !== 1) {
 					throw new Exception('Video not found');
 				}
 
 				// video Delete
-				$video = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $video->video);
+				$video = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $iVideo->video);
 				if (File::exists($video) && preg_match('/^storage/', $video)) {
 					File::delete($video);
 				}
 
-				$video1 = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $video->app_video);
-				if (File::exists($video1) && preg_match('/^storage/', $video1)) {
-					File::delete($video1);
+				// thumbnail Delete
+				$thumbnail = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $iVideo->thumbnail);
+				if (File::exists($thumbnail) && preg_match('/^storage/', $thumbnail)) {
+					File::delete($thumbnail);
 				}
 
-				$this->reOrder();
 				DB::commit();
 				return response()->json(['success' => TRUE, 'message' => 'Video deleted successfully']);
 			} catch (Exception $e) {

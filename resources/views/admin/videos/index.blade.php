@@ -34,6 +34,7 @@
                                     <th>Title</th>
                                     <th>Slug</th>
                                     <th class="min-w-200">Video</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -102,7 +103,17 @@
 
                         return iReturn;
                     },
-                }
+                },
+                {
+                    data: 'id',
+                    render(data, type, full, meta) {
+                        return (
+                            '<span style="font-size:25px; margin-left: 15px;" video_id="' +
+                            data +
+                            '"  class="deleteTab action-delete"><i class="fa fa-trash-o" style="color:red" aria-hidden="true"></i></span>'
+                        );
+                    },
+                },
             ],
             columnDefs: [{
                     width: "20%",
@@ -126,6 +137,12 @@
                 let val = $(this).filter(':checked').val() == "on" ? 1 : 0;
                 confomationDailog($(this), "{{ route('admin.videos.statusUpdate', '') }}", '/' + id,
                     'status', val);
+            });
+
+            $(".deleteTab").click(function() {
+                let id = $(this).attr("video_id");
+                confomationDailog($(this), "{{ route('admin.videos.delete', '') }}", '/' + id, '', "", "delete",
+                    true);
             });
         }
     </script>

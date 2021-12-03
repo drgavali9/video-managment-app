@@ -16,9 +16,8 @@ class Video extends Model
 	use HasFactory;
 
 	protected $fillable = [
-		'title',
-		'slug',
 		'video',
+		'thumbnail',
 		'status',
 	];
 
@@ -32,6 +31,19 @@ class Video extends Model
 			}
 		} else {
 			$value = url('public/' . Config::get('imagepath.default.video'));
+		}
+		return $value;
+	}
+	public function getThumbnailAttribute($value)
+	{
+		if (isset($value) && !empty($value)) {
+			if (strpos($value, 'http') === false) {
+				$value = url('public/' . Config::get('imagepath.path.thumbnail') . $value);
+			} else if (strpos($value, 'http') != 0) {
+				$value = url('public/' . Config::get('imagepath.path.thumbnail') . $value);
+			}
+		} else {
+			$value = url('public/' . Config::get('imagepath.default.thumbnail'));
 		}
 		return $value;
 	}

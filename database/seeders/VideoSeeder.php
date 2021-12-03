@@ -15,9 +15,8 @@ class VideoSeeder extends Seeder
 	public function run()
 	{
 		Video::create([
-			'title' => 'Fresh Fruit',
-			'slug' => 'fresh-fruit',
-			'video' => 'Fresh Fruit',
+			'video' => 'test.mp4',
+			'thumbnail' => 'test.jpg',
 			'status' => 1,
 		]);
 	}

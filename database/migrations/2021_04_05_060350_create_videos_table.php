@@ -16,9 +16,8 @@ class CreateVideosTable extends Migration
 		Schema::create('videos', function (Blueprint $table) {
 			$table->id();
 			$table->engine = "InnoDB";
-			$table->string('title', 100)->nullable();
-			$table->string('slug', 100)->nullable();
-			$table->string('video', 100)->unique();
+			$table->string('video', 100);
+			$table->string('thumbnail', 100);
 			$table->boolean('status')->default(0)->comment("0-Inactive, 1-Active");
 			$table->timestamps();
 		});

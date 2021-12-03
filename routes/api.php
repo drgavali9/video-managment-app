@@ -22,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('videos')->group(function () {
 	Route::get('/get_all', [VideoController::class, 'get_all'])->name('admin.videos.get_all');
 	Route::post('/store', [VideoController::class, 'store'])->name('admin.videos.store');
+	Route::get('/delete/{id}', [VideoController::class, 'destroy'])->name('admin.videos.destroy');
 });
