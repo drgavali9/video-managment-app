@@ -31,8 +31,6 @@
                         <table class="table data-list-view category-table" id="category-management">
                             <thead>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Slug</th>
                                     <th class="min-w-200">Video</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -62,19 +60,7 @@
                     return json.data;
                 },
             },
-            columns: [{
-                    data: 'title',
-                },
-                // {
-                //     data: 'id',
-                //     render(data, type, full, meta) {
-                //         return ('<div class="banner-img"> <img onerror="this.onerror=null;this.src=\'{{ url(config('imagepath.default.category.image')) }}\'" src="' +
-                //             full.web_image + '"> </div>');
-                //     },
-                // },
-                {
-                    data: 'slug',
-                },
+            columns: [
                 {
                     data: 'video',
                     render(data, type, full, meta) {
