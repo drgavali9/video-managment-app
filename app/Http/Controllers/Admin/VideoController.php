@@ -34,9 +34,11 @@ class VideoController extends BaseController
 		try {
 			$length = $request->length > 0 ? $request->length : 10;
 			$iRes = Video::select('*');
-			return $iRes->where('status', 1)
-			// ->paginate($length)
-			->random();
+
+			$iReturn = $iRes->where('status', 1)->inRandomOrder()
+				// ->paginate($length);
+				->get();
+			return response()->json(['success' => TRUE, 'message' => 'Video Get Successfully', 'data' => $iReturn]);
 		} catch (Throwable $th) {
 			throw $th;
 		}
@@ -73,7 +75,7 @@ class VideoController extends BaseController
 				$iVideo->save();
 				// $video_id = $iVideo->id;
 				// $this->uploadVideo($request, $video_id);
-			}else{
+			} else {
 				throw new Exception('Video not found');
 			}
 			DB::commit();
