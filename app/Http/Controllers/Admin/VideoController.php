@@ -22,7 +22,7 @@ class VideoController extends BaseController
 	public function index(Request $request)
 	{
 		if ($request->ajax()) {
-			$videoData = Video::get();
+			$videoData = Video::latest()->get();
 			// Using Eloquent
 			return DataTables::of($videoData)->make(true);
 		}
