@@ -11,6 +11,6 @@ return [
 	],
 	'path' => [
         'video' => 'storage/videos/',
-        'thumbnail' => 'storage/videos/',
+        'thumbnail' => 'storage/thumbnail/',
 	],
 ];
