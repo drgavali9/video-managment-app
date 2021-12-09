@@ -62,6 +62,10 @@ class VideoController extends BaseController
 			if ($request->hasFile('video')) {
 				$iVideo = new Video();
 
+				$iVideo->userName = $request->userName;
+				$iVideo->userCountry = $request->userCountry;
+				$iVideo->userPicture = $request->userPicture;
+
 				$video = $request->file('video');
 				$name = md5(RandomStringGenerator(16) . time()) . '.' . $video->extension();
 				$video->move(public_path(Config::get('imagepath.path.video')), $name);

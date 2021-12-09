@@ -15,6 +15,9 @@ class VideoSeeder extends Seeder
 	public function run()
 	{
 		Video::create([
+			'userName' => '',
+			'userCountry' => '',
+			'userPicture' => '',
 			'video' => 'test.mp4',
 			'thumbnail' => 'test.jpg',
 			'status' => 1,
