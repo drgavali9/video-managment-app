@@ -35,7 +35,9 @@ class VideoController extends BaseController
 			$length = $request->length > 0 ? $request->length : 10;
 			$iRes = Video::select('*');
 
-			$iReturn = $iRes->where('status', 1)->inRandomOrder()
+			$iReturn = $iRes->where('status', 1)
+				// ->inRandomOrder()
+				->latest()
 				// ->paginate($length);
 				->get();
 			return response()->json(['success' => TRUE, 'message' => 'Video Get Successfully', 'data' => $iReturn]);
