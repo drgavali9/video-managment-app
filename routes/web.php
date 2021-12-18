@@ -66,7 +66,6 @@ Route::middleware(['localization'])->group(function () {
 				Route::post('/subupdate/{id}', [VideoController::class, 'subupdate'])->name('admin.videos.sub.update');
 				Route::post('/delete/{id}', [VideoController::class, 'destroy'])->name('admin.videos.delete');
 				Route::post('/statusUpdate/{id}', [VideoController::class, 'statusUpdate'])->name('admin.videos.statusUpdate');
-				Route::post('/updateSortOrders', [VideoController::class, 'updateSortOrders'])->name('admin.videos.updateSortOrders');
 			});
 		});
 });

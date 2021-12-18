@@ -21,7 +21,6 @@ class CreateVideosTable extends Migration
 			$table->string('userPicture', 255)->nullable();
 			$table->string('video', 100);
 			$table->string('thumbnail', 100);
-			$table->integer('video_count')->default(0);
 			$table->boolean('status')->default(0)->comment("0-Inactive, 1-Active");
 			$table->timestamps();
 		});
