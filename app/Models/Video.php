@@ -21,6 +21,7 @@ class Video extends Model
 		'userPicture',
 		'video',
 		'thumbnail',
+		'view_count',
 		'status',
 	];
 
