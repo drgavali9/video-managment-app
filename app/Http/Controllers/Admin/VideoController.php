@@ -49,7 +49,7 @@ class VideoController extends BaseController
 	public function videoCountIncress(Request $request, video $video)
 	{
 		try {
-			$video->increment('view_count');
+			$video->increment('views');
 			return response()->json(['success' => TRUE, 'message' => 'Video view count updated']);
 		} catch (Throwable $th) {
 			throw $th;

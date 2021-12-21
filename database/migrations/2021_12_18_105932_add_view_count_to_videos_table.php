@@ -14,7 +14,7 @@ class AddViewCountToVideosTable extends Migration
 	public function up()
 	{
 		Schema::table('videos', function (Blueprint $table) {
-			$table->integer('view_count')->default(0);
+			$table->integer('views')->default(0);
 		});
 	}
 
@@ -26,7 +26,7 @@ class AddViewCountToVideosTable extends Migration
 	public function down()
 	{
 		Schema::table('videos', function (Blueprint $table) {
-			$table->dropColumn('view_count');
+			$table->dropColumn('views');
 		});
 	}
 }
