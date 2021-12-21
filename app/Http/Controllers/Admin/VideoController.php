@@ -40,7 +40,7 @@ class VideoController extends BaseController
 				->latest()
 				// ->paginate($length);
 				->get();
-			return response()->json(['success' => TRUE, 'message' => 'Video Get Successfully', 'data' => $iReturn]);
+			return response()->json(['success' => TRUE, 'message' => 'Video get successfully', 'data' => $iReturn]);
 		} catch (Throwable $th) {
 			throw $th;
 		}
@@ -50,7 +50,7 @@ class VideoController extends BaseController
 	{
 		try {
 			$video->increment('view_count');
-			return response()->json(['success' => TRUE, 'message' => 'Video view updated']);
+			return response()->json(['success' => TRUE, 'message' => 'Video view count updated']);
 		} catch (Throwable $th) {
 			throw $th;
 		}
@@ -194,7 +194,7 @@ class VideoController extends BaseController
 				}
 
 				DB::commit();
-				return response()->json(['success' => TRUE, 'message' => 'Video deleted successfully']);
+				return response()->json(['success' => TRUE, 'message' => 'Video deleted!']);
 			} catch (Exception $e) {
 				DB::rollback();
 				return response()->json(['success' => FALSE, 'message' => $e->getMessage()], 422, [], 5);
