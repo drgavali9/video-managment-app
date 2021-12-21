@@ -151,7 +151,7 @@ class VideoController extends BaseController
 	// 		if (!empty($old_video)) {
 	// 			foreach ($old_video as $key => $value) {
 	// 				$video = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $value);
-	// 				if (File::exists($video) && preg_match('/^storage/', $video)) {
+	// 				if (File::exists($video)) {
 	// 					File::delete($video);
 	// 				}
 	// 			}
@@ -183,13 +183,13 @@ class VideoController extends BaseController
 
 				// video Delete
 				$video = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $iVideo->video);
-				if (File::exists($video) && preg_match('/^storage/', $video)) {
+				if (File::exists($video)) {
 					File::delete($video);
 				}
 
 				// thumbnail Delete
 				$thumbnail = str_replace('http://' . $_SERVER['HTTP_HOST'] . '/', '', $iVideo->thumbnail);
-				if (File::exists($thumbnail) && preg_match('/^storage/', $thumbnail)) {
+				if (File::exists($thumbnail)) {
 					File::delete($thumbnail);
 				}
 
